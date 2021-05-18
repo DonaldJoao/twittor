@@ -40,6 +40,7 @@ func LeoTweets(ID string, pagina int64) ([]*models.DevuelvoTweets, bool) {
 		var registro models.DevuelvoTweets
 		err := cursor.Decode(&registro)
 		if err != nil {
+			log.Fatal(err.Error())
 			return resultados, false
 		}
 		resultados = append(resultados, &registro)
