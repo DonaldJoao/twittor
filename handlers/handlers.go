@@ -25,9 +25,10 @@ func Manejadores() {
 
 	router.HandleFunc("/subirAvatar", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.SubirAvatar))).Methods("POST")
 	router.HandleFunc("/obtenerAvatar", middlewares.ChequeoBD(routers.ObtenerAvatar)).Methods("GET")
-
 	router.HandleFunc("/subirBanner", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.SubirBanner))).Methods("POST")
 	router.HandleFunc("/obtenerBanner", middlewares.ChequeoBD(routers.ObtenerBanner)).Methods("GET")
+
+	router.HandleFunc("/altaRelacion", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.AltaRelacion))).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
